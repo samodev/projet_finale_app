@@ -1,0 +1,43 @@
+pipeline{
+    agent{
+        label 'Slave-docker-ci'
+    }
+    stages{
+        stage('git'){
+            steps{
+                deleteDir()
+                git branch: 'Stephae_david', url: 'https://gitlab.com/wunder-it/gfi-devops/devops-app-appli.git'
+            }
+        }
+        stage('clean'){
+            steps{
+                withMaven(mavenSettingsFilePath: 'settings.xml',maven: 'maven-3.3.9') {
+                    sh 'mvn clean'
+                }
+            }
+        }
+        stage ('Run Tests') {
+            parallel {
+                stage('Checkstyle Test'){
+                    steps {
+                        withMaven(maven: 'maven-3.3.9') {
+                            sh 'mvn checkstyle:checkstyle'
+                        }
+                    }
+                    post{
+                        always{
+                            checkstyle pattern: '**/checkstyle-result.xml'
+                        }
+                    }
+                }
+            }
+        }
+        stage('deploy'){
+            steps{
+                withMaven(mavenSettingsFilePath: 'settings.xml', maven: 'maven-3.3.9') {
+                    sh 'mvn clean deploy'
+                }
+            }
+        }
+    }
+}

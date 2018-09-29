@@ -25,27 +25,27 @@
    <repository>
      <id>central</id>
      <name>devops-app-03-releases</name>
-     <url>http://devops-app-001.eastus.cloudapp.azure.com/artifactory/devopsapp-snapshot</url>
+     <url>http://10.0.2.6:8081/artifactory/devopsapp-releases</url>
    </repository>
     <snapshotRepository>
       <id>snapshots</id>
       <name>devops-app-03-snapshots</name>
-      <url>http://devops-app-001.eastus.cloudapp.azure.com/artifactory/devopsapp-snapshot</url>
+      <url>http://10.0.2.6:8081/artifactory/devopsapp-snapshot</url>
     </snapshotRepository>
   </distributionManagement>
 
-  <distributionManagement>
-    <repository>
-      <id>central</id>
-      <name>devops-app-03-releases</name>
-      <url>http://devops-app-001.eastus.cloudapp.azure.com/artifactory/devopsapp-releases</url>
-    </repository>
-    <snapshotRepository>
-      <id>snapshots</id>
-      <name>devops-app-03-snapshots</name>
-      <url>http://devops-app-001.eastus.cloudapp.azure.com/artifactory/devopsapp-releases</url>
-    </snapshotRepository>
-  </distributionManagement>
+  <!--<distributionManagement>-->
+    <!--<repository>-->
+      <!--<id>central</id>-->
+      <!--<name>devops-app-03-releases</name>-->
+      <!--<url>http://devops-app-001.eastus.cloudapp.azure.com/artifactory/devopsapp-releases</url>-->
+    <!--</repository>-->
+    <!--<snapshotRepository>-->
+      <!--<id>snapshots</id>-->
+      <!--<name>devops-app-03-snapshots</name>-->
+      <!--<url>http://devops-app-001.eastus.cloudapp.azure.com/artifactory/devopsapp-releases</url>-->
+    <!--</snapshotRepository>-->
+  <!--</distributionManagement>-->
 
   <build>
     <plugins>
