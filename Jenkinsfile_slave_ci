@@ -6,7 +6,7 @@ pipeline{
         stage('git'){
             steps{
                 deleteDir()
-                git branch: 'Stephae_david', url: 'https://gitlab.com/wunder-it/gfi-devops/devops-app-appli.git'
+                git branch: 'master', url: 'https://github.com/samodev/projet_finale_app.git'
             }
         }
         stage('clean'){
